@@ -39,7 +39,7 @@ git init
 git add .
 git commit -m "feat: 掌上工程查看器 MVP（GLB/VTU/MAT 查看）"
 git branch -M main
-git remote add origin https://github.com/1906873198/cadviewer.git
+git remote add origin https://github.com/Freshion7/cadviewer.git
 git push -u origin main
 ```
 
