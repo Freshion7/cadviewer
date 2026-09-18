@@ -23,7 +23,7 @@ def convert(src: str, out_dir: str, mesh_size: float = 0.0) -> dict:
     )
     if proc.returncode != 0:
         detail = (proc.stderr or proc.stdout or "").strip()
-        raise RuntimeError(f"STEP 转换失败：{detail[:400]}")
+        raise RuntimeError(f"STEP 转换失败：{detail[-400:]}")
 
     result_path = os.path.join(out_dir, "_result.json")
     if not os.path.exists(result_path):
