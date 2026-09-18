@@ -21,8 +21,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ ./
 COPY --from=frontend /build/frontend/dist /app/../frontend/dist
 
-# 前端 dist 位于 /frontend/dist，后端按相对路径挂载
-RUN mkdir -p /frontend && cp -r /app/../frontend/dist /frontend/dist
 
 EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
