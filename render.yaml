@@ -3,7 +3,7 @@ services:
   - type: web
     name: cadviewer
     runtime: docker
-    repo: https://github.com/1906873198/cadviewer
+    repo: https://github.com/Freshion7/cadviewer
     plan: free
     dockerfilePath: ./backend/Dockerfile
     healthCheckPath: /api/health
