@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+backend/.venv/
+backend/data/
+
+# Node
+node_modules/
+frontend/dist/
+*.local
+
+# 环境与密钥
+.env
+.env.*
+!.env.example
+
+# 系统
+.DS_Store
+Thumbs.db

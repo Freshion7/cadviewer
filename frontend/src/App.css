@@ -1,0 +1,126 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app { min-height: 100%; }
+
+/* ---------- 顶部栏 ---------- */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px; background: #1e293b; position: sticky; top: 0; z-index: 50;
+  font-size: 15px; font-weight: 600;
+}
+.back-btn {
+  background: #334155; color: #e2e8f0; border: none; border-radius: 8px;
+  padding: 6px 12px; font-size: 14px; cursor: pointer;
+}
+.back-btn:active { background: #475569; }
+
+/* ---------- 首页 ---------- */
+.file-page { max-width: 720px; margin: 0 auto; padding: 16px; }
+
+.hero h1 { font-size: 22px; }
+.hero p { color: #94a3b8; font-size: 13px; margin-top: 4px; }
+
+.upload-zone {
+  margin-top: 16px; padding: 26px 16px; text-align: center;
+  border: 2px dashed #475569; border-radius: 14px; cursor: pointer;
+  background: #16213a; transition: border-color .2s;
+}
+.upload-zone:active { border-color: #6ea8fe; }
+.upload-plus {
+  width: 44px; height: 44px; line-height: 40px; margin: 0 auto 8px;
+  border-radius: 50%; background: #2563eb; color: #fff; font-size: 26px;
+}
+.upload-hint { color: #64748b; font-size: 12px; margin-top: 6px; }
+
+.tip { margin-top: 10px; padding: 8px 12px; background: #1e293b; border-radius: 8px; font-size: 13px; color: #93c5fd; }
+.empty { text-align: center; color: #64748b; margin-top: 40px; font-size: 14px; }
+
+.file-list { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+
+.file-card {
+  display: flex; align-items: center; gap: 12px;
+  background: #1e293b; border-radius: 12px; padding: 12px; cursor: pointer;
+  border-left: 4px solid #475569;
+}
+.file-card.status-error { border-left-color: #ef4444; }
+.file-card.status-done { border-left-color: #22c55e; }
+.file-card.status-converting, .file-card.status-pending { border-left-color: #f59e0b; }
+.file-card:active { background: #26334d; }
+
+.file-icon { font-size: 26px; }
+.file-body { flex: 1; min-width: 0; }
+.file-name { font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.file-sub { color: #94a3b8; font-size: 12px; margin-top: 3px; }
+.file-msg { color: #64748b; font-size: 12px; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.file-status { flex-shrink: 0; }
+.badge { font-size: 12px; padding: 3px 8px; border-radius: 20px; }
+.badge.done { background: #052e16; color: #4ade80; }
+.badge.converting { background: #451a03; color: #fbbf24; }
+.badge.pending { background: #1e293b; color: #94a3b8; }
+.badge.error { background: #450a0a; color: #f87171; }
+.btn-view { background: #2563eb; color: #fff; padding: 6px 10px; border-radius: 8px; font-size: 13px; }
+
+.foot-note { margin-top: 22px; color: #475569; font-size: 12px; text-align: center; line-height: 1.7; }
+
+/* ---------- 查看器 ---------- */
+.viewer-page { position: relative; height: calc(100vh - 46px); }
+.viewer-canvas { position: absolute; inset: 0; }
+.viewer-canvas canvas { display: block; }
+
+.viewer-toolbar {
+  position: absolute; left: 10px; right: 10px; bottom: 14px; z-index: 20;
+  display: flex; gap: 8px; align-items: center;
+  background: rgba(15, 23, 42, .85); backdrop-filter: blur(6px);
+  border-radius: 12px; padding: 8px 10px;
+}
+.viewer-toolbar button, .viewer-toolbar select {
+  background: #334155; color: #e2e8f0; border: none; border-radius: 8px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer; flex-shrink: 0;
+}
+.viewer-toolbar button.active { background: #2563eb; }
+.viewer-toolbar select { flex: 1; min-width: 0; }
+.btn-download {
+  background: #2563eb; color: #fff; text-decoration: none; border-radius: 8px;
+  padding: 7px 12px; font-size: 13px; flex-shrink: 0;
+}
+
+.viewer-loading, .viewer-error, .viewer-info {
+  position: absolute; z-index: 15; left: 50%; transform: translateX(-50%);
+  padding: 8px 14px; border-radius: 8px; font-size: 13px; white-space: nowrap;
+}
+.viewer-loading { top: 12px; background: #1e293b; color: #93c5fd; }
+.viewer-error { top: 12px; background: #450a0a; color: #fca5a5; max-width: 90%; white-space: normal; }
+.viewer-info { top: 52px; background: rgba(30, 41, 59, .9); color: #94a3b8; }
+
+/* 标量条 */
+.scalar-bar {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%); z-index: 20;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: rgba(15, 23, 42, .7); border-radius: 8px; padding: 6px;
+}
+.scalar-gradient {
+  width: 10px; height: 140px; border-radius: 5px;
+  background: linear-gradient(to top,
+    #0000ff, #00aaff, #00ffff, #00ff80, #80ff00, #ffff00, #ff8000, #ff0000);
+}
+.scalar-max, .scalar-min { color: #cbd5e1; font-size: 10px; }
+
+/* ---------- MATLAB 数据页 ---------- */
+.chart-page { max-width: 720px; margin: 0 auto; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.chart-card { background: #1e293b; border-radius: 12px; padding: 14px; }
+.chart-title { font-size: 14px; font-weight: 600; margin-bottom: 10px; color: #cbd5e1; }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.data-table th, .data-table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #334155; }
+.data-table th { color: #94a3b8; font-weight: 500; }
+.data-table td { color: #e2e8f0; word-break: break-all; }

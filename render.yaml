@@ -1,0 +1,12 @@
+# Render Blueprint —— 在 Render 后台导入本仓库即可一键部署
+services:
+  - type: web
+    name: cadviewer
+    runtime: docker
+    repo: https://github.com/1906873198/cadviewer
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"

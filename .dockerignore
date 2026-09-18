@@ -1,0 +1,9 @@
+.git
+.gitignore
+backend/.venv
+backend/data
+frontend/node_modules
+frontend/dist
+docs
+samples
+*.md
