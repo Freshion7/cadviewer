@@ -11,7 +11,7 @@ FROM python:3.12-slim
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libgl1 libglib2.0-0 libgomp1 libxrender1 libxt6 libgfortran5 libglu1-mesa \
+    libgl1 libglib2.0-0 libgomp1 libxrender1 libxt6 libgfortran5 libglu1-mesa libxcursor1 libxinerama1 libxft2 libxrandr2 libxi6 libxmu6 libx11-6 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
